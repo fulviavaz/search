@@ -23,24 +23,42 @@ export default function ResultsList({ results }: ResultsListProps) {
 
   return (
     <div className={styles.resultsContainer}>
-      <div className={styles.resultsList}>
-        {results.map((item: Result) => (
-          <div
-            key={item.id}
-            className={styles.resultsList__container}
-            onClick={() => handleItemClick(item)}
-          >
-            <p className={styles.resultsList__url}>{item.url}</p>
-            <a className={styles.resultsList__title} href={item.url}>
-              {item.title}
-            </a>
-            <p className={styles.resultsList__description}>
-              {item.description}
-            </p>
+      <div className={styles.resultsContent}>
+        <div className={styles.resultsList}>
+          {results.map((item: Result) => (
+            <div
+              key={item.id}
+              className={styles.resultsList__container}
+              onClick={() => handleItemClick(item)}
+            >
+              <p className={styles.resultsList__url}>
+                <a
+                  href={item.url}
+                  className={styles.resultsList__url}
+                  onClick={(e) => e.preventDefault()}
+                >
+                  {item.url}
+                </a>
+              </p>
+              <a
+                className={styles.resultsList__title}
+                href={item.url}
+                onClick={(e) => e.preventDefault()}
+              >
+                {item.title}
+              </a>
+              <p className={styles.resultsList__description}>
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+        {selectedItem && (
+          <div className={styles.resultsCardContainer}>
+            <ResultsCard item={selectedItem} />
           </div>
-        ))}
+        )}
       </div>
-      {selectedItem && <ResultsCard item={selectedItem} />}{" "}
     </div>
   );
 }
