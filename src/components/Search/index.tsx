@@ -25,7 +25,7 @@ export default function Search() {
     <div className={styles.search}>
       <div className={styles.search__container}>
         <img src={logo} alt="logo" />
-        <Input onChange={handleInputChange} />
+        <Input onChange={handleInputChange} value={searchValue} />
         <button
           className={styles.search__btn}
           onClick={handleSearch}

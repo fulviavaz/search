@@ -26,7 +26,7 @@ export default function Results() {
         <div className={styles.results__container}>
           <div className={styles.results__search}>
             <img className={styles.results__logo} src={logo} alt="logo" />
-            <Input onChange={handleInputChange} />
+            <Input onChange={handleInputChange} value={searchValue} />
           </div>
           <div className={styles.results__user}>
             <img src={apps} alt="apps" />
@@ -34,9 +34,9 @@ export default function Results() {
           </div>
         </div>
       </header>
-      <div className={styles.results__section}>
+      <section className={styles.results__section}>
         <ResultsList results={filteredResults} />
-      </div>
+      </section>
     </>
   );
 }

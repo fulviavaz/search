@@ -4,12 +4,13 @@ import { FaSearch } from "react-icons/fa";
 
 interface InputProps {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  value: string;
 }
 
-const Input: React.FC<InputProps> = ({ onChange }) => {
+const Input: React.FC<InputProps> = ({ onChange, value }) => {
   return (
     <div className={styles.input__container}>
-      <input type="text" onChange={onChange} />
+      <input type="text" onChange={onChange} value={value} />{" "}
       <FaSearch className={styles.input__icon} />
     </div>
   );
