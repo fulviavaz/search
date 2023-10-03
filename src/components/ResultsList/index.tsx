@@ -90,7 +90,7 @@ export default function ResultsList({ results, searchTerm }: ResultsListProps) {
         )}
       </div>
       {results.length === 0 && <p>No results found.</p>}
-      {!searchTerm && <p>Please enter a search term.</p>}
+      {/* {!searchTerm && <p>Please enter a search term.</p>} */}
     </div>
   );
 }
