@@ -37,7 +37,7 @@ export default function Results() {
         </div>
       </header>
       <section className={styles.results__section}>
-        <ResultsList results={filteredResults} />
+        <ResultsList results={filteredResults} searchTerm={""} />
       </section>
     </>
   );
