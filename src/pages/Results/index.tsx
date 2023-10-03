@@ -6,16 +6,16 @@ import user from "../../assets/user.jpg";
 import apps from "../../assets/nav.svg";
 import ResultsList from "../../components/ResultsList";
 import data from "../../data";
+import { Link } from "react-router-dom";
 
 export default function Results() {
-  const [searchValue, setSearchValue] = useState(""); // Estado para o valor do input
+  const [searchValue, setSearchValue] = useState("");
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setSearchValue(value);
   };
 
-  // Filtre os resultados com base no valor de pesquisa
   const filteredResults = data.filter((item) =>
     item.title.toLowerCase().includes(searchValue.toLowerCase())
   );
@@ -25,7 +25,9 @@ export default function Results() {
       <header className={styles.results__header}>
         <div className={styles.results__container}>
           <div className={styles.results__search}>
-            <img className={styles.results__logo} src={logo} alt="logo" />
+            <Link to="/">
+              <img className={styles.results__logo} src={logo} alt="logo" />
+            </Link>
             <Input onChange={handleInputChange} value={searchValue} />
           </div>
           <div className={styles.results__user}>

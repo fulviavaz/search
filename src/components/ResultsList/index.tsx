@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./ResultsList.module.scss";
 import ResultsCard from "../ResultsCard";
+import isMobile from "is-mobile";
 
 export type Result = {
   id: number;
@@ -16,14 +17,34 @@ interface ResultsListProps {
 
 export default function ResultsList({ results }: ResultsListProps) {
   const [selectedItem, setSelectedItem] = useState<Result | null>(null);
+  const resultsListRef = useRef<HTMLDivElement | null>(null);
 
   const handleItemClick = (item: Result) => {
     setSelectedItem(item);
   };
 
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        resultsListRef.current &&
+        !resultsListRef.current.contains(event.target as Node)
+      ) {
+        setSelectedItem(null);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
+
+  const isMobileDevice = isMobile();
+
   return (
     <div className={styles.resultsContainer}>
-      <div className={styles.resultsContent}>
+      <div className={styles.resultsContent} ref={resultsListRef}>
         <div className={styles.resultsList}>
           {results.map((item: Result) => (
             <div
@@ -54,8 +75,12 @@ export default function ResultsList({ results }: ResultsListProps) {
           ))}
         </div>
         {selectedItem && (
-          <div className={styles.resultsCardContainer}>
-            <ResultsCard item={selectedItem} />
+          <div
+            className={
+              isMobileDevice ? styles.modal : styles.resultsCardContainer
+            }
+          >
+            <ResultsCard item={selectedItem} isModal={isMobileDevice} />
           </div>
         )}
       </div>

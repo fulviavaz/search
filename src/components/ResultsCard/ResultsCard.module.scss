@@ -1,3 +1,46 @@
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #F2F2F2;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    width: 500px;
+    height: auto;
+    overflow-y: auto;
+}
+
+.modal .resultsCard__img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.modal .resultsCard__url {
+    font-size: 14px;
+    color: #4F4F4F;
+    margin-bottom: 5px;
+}
+
+.modal .resultsCard__title {
+    font-size: 25px;
+    color: #000000;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.modal .resultsCard__text {
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
 .resultsCard {
     display: inline-block;
     width: 500px;
@@ -6,26 +49,26 @@
     border-radius: 10px;
     padding: 20px;
     text-align: left;
+}
 
-    .resultsCard__img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-    }
+.resultsCard .resultsCard__img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
 
-    .resultsCard__url {
-        font-size: 14px;
-        color: #4F4F4F;
-    }
+.resultsCard .resultsCard__url {
+    font-size: 14px;
+    color: #4F4F4F;
+}
 
-    .resultsCard__title {
-        font-size: 25px;
-        color: #000000;
-        font-weight: 700;
-    }
+.resultsCard .resultsCard__title {
+    font-size: 25px;
+    color: #000000;
+    font-weight: 700;
+}
 
-    .resultsCard__text {
-        font-size: 18px;
-        color: #000000;
-    }
+.resultsCard .resultsCard__text {
+    font-size: 18px;
+    color: #000000;
 }

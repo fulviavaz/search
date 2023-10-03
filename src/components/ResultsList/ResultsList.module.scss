@@ -7,14 +7,13 @@
 .resultsContent {
     display: flex;
     align-items: flex-start;
-
 }
 
 .resultsList__container {
     display: inline-block;
     text-align: left;
-    max-width: 80%;
-    padding: 0px 30px;
+    width: 100%;
+    padding: 0 30px;
 }
 
 .resultsList__url {
@@ -37,5 +36,37 @@
 .resultsCardContainer {
     margin-top: 30px;
     margin-left: 20px;
+}
 
+.modal .resultsCardContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    width: 100%;
+}
+
+.modal .resultsCardContainer .resultsCard {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .resultsContent {
+        flex-direction: column;
+    }
+
+    .resultsList__container {
+        max-width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .resultsList__description {
+        width: 100%;
+    }
+
+    .resultsCardContainer {
+        margin: 0;
+    }
 }
