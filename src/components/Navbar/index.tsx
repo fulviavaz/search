@@ -13,7 +13,7 @@ export default function Navbar() {
         </li>
         <li className={styles.navbar__item}>
           <a className={styles.navbar__link} href="/">
-            Images
+            Imagens
           </a>
         </li>
         <li className={styles.navbar__item}>

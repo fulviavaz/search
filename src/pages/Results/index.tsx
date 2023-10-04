@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useEffect } from "react";
 import styles from "./Results.module.scss";
 import Input from "../../components/Input";
 import logo from "../../assets/logo.svg";
@@ -6,10 +6,14 @@ import user from "../../assets/user.jpg";
 import apps from "../../assets/nav.svg";
 import ResultsList from "../../components/ResultsList";
 import data from "../../data";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Results() {
-  const [searchValue, setSearchValue] = useState("");
+  const location = useLocation();
+  const urlSearchParams = new URLSearchParams(location.search);
+  const searchParam = urlSearchParams.get("search");
+
+  const [searchValue, setSearchValue] = useState(searchParam || "");
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -19,6 +23,13 @@ export default function Results() {
   const filteredResults = data.filter((item) =>
     item.title.toLowerCase().includes(searchValue.toLowerCase())
   );
+
+  useEffect(() => {
+    const updatedSearchParam = urlSearchParams.get("search");
+    if (updatedSearchParam !== searchValue) {
+      setSearchValue(updatedSearchParam || "");
+    }
+  }, [location.search, searchValue]);
 
   return (
     <>

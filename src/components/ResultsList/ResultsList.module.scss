@@ -25,6 +25,7 @@
 .resultsList__title {
     font-size: 25px;
     text-decoration: none;
+    cursor:pointer;
 }
 
 .resultsList__description {
@@ -36,6 +37,8 @@
 .resultsCardContainer {
     margin-top: 30px;
     margin-left: 20px;
+    position: fixed;
+    right:100px;
 }
 
 .modal .resultsCardContainer {

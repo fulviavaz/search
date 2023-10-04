@@ -1,7 +1,10 @@
+// ResultsList.js
+
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./ResultsList.module.scss";
 import ResultsCard from "../ResultsCard";
 import isMobile from "is-mobile";
+import Overlay from "./Overlay/Overlay";
 
 export type Result = {
   id: number;
@@ -45,6 +48,12 @@ export default function ResultsList({ results, searchTerm }: ResultsListProps) {
 
   return (
     <div className={styles.resultsContainer}>
+      {isMobileDevice && (
+        <Overlay
+          isVisible={selectedItem !== null}
+          onClose={() => setSelectedItem(null)}
+        />
+      )}
       <div className={styles.resultsContent} ref={resultsListRef}>
         {results.length === 0 ? (
           <p>No results found.</p>
@@ -90,7 +99,6 @@ export default function ResultsList({ results, searchTerm }: ResultsListProps) {
         )}
       </div>
       {results.length === 0 && <p>No results found.</p>}
-      {/* {!searchTerm && <p>Please enter a search term.</p>} */}
     </div>
   );
 }
