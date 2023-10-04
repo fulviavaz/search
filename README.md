@@ -5,4 +5,4 @@
 
 ## A search application
 
-## Techs: React.JS | CSS modules | SCSS | Typescript | React-Hooks | React-Router-DOM | React-Test-Library | Jest
+## Techs: React.JS | CSS modules | SCSS | Typescript | React-Hooks | React-Router-DOM | React-Test-Library | Jest | Faker.JS | Is-Mobile
